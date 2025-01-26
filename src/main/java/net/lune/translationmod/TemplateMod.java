@@ -6,8 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TemplateMod implements ModInitializer {
-	public static final String MOD_ID = "templatemod"
-	public static final String MOD_ID = LoggerFactory.getLogger(MOD_ID);
+	public static final String MOD_ID = "yolcotlmod";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
