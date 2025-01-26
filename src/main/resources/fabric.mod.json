@@ -20,6 +20,9 @@
 		],
 		"fabric-datagen": [
 			"net.lune.translationmod.TemplateModDataGenerator"
+		],
+		"client": [
+			"net.lune.translationmod.ModClient"
 		]
 	},
 	"mixins": [
