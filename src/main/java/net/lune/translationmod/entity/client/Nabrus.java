@@ -65,11 +65,11 @@ public class Nabrus extends EntityModel<Entity> {
 		this.Foot2 = this.Leg2.getChild("Foot2");
 		this.Hips = root.getChild("Hips");
 		this.Chest = root.getChild("Chest");
-		this.Nabrus = root.getChild("Nabrus");
 	}
-	public net.minecraft.client.model.ic static TexturedModelData getTexturedModelData() {
+	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
+
 		ModelPartData tail = modelPartData.addChild("tail", ModelPartBuilder.create(), ModelTransform.pivot(-1.0279F, -0.5063F, 15.774F));
 
 		ModelPartData bone = tail.addChild("bone", ModelPartBuilder.create().uv(58, 39).cuboid(0.0F, -2.0F, -1.0F, 6.0F, 6.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -1.0F, -8.6667F));
