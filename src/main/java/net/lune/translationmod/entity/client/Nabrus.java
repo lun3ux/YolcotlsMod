@@ -7,11 +7,16 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.PathAwareEntity;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.server.world.ServerWorld;
+import org.jetbrains.annotations.Nullable;
 
 // Made with Blockbench 4.12.2
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
-public class Nabrus<T extends NabrusEntity> extends SinglePartEntityModel<T> {
+public class Nabrus<T extends NabrusEntity> {
 	private final ModelPart Nabrus;
 
 	private final ModelPart tail;
@@ -40,7 +45,8 @@ public class Nabrus<T extends NabrusEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart Hips;
 	private final ModelPart Chest;
 	public Nabrus(ModelPart root) {
-		this.Nabrus = root.getChild("Nabrus");
+        super();
+        this.Nabrus = root.getChild("Nabrus");
 		this.tail = this.Nabrus.getChild("tail");
 		this.bone = this.tail.getChild("bone");
 		this.bone3 = this.bone.getChild("bone3");
@@ -167,18 +173,20 @@ public class Nabrus<T extends NabrusEntity> extends SinglePartEntityModel<T> {
 		return TexturedModelData.of(modelData, 128, 128);
 	}
 
-	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
 		Nabrus.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
 	}
 
-	@Override
+
 	public ModelPart getPart() {
 		return Nabrus;
 	}
 
-	@Override
 	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
+	}
+
+	public @Nullable PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+		return null;
 	}
 }
