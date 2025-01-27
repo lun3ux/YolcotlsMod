@@ -1,18 +1,18 @@
-// Made with Blockbench 4.12.2
-// Exported for Minecraft version 1.17+ for Yarn
-// Paste this class into your mod and generate all required imports
 package net.lune.translationmod.entity.client;
 
+import net.lune.translationmod.entity.custom.NabrusEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.client.model.TexturedModelData;
 
-
-public class Nabrus extends EntityModel<Entity> {
-
+// Made with Blockbench 4.12.2
+// Exported for Minecraft version 1.17+ for Yarn
+// Paste this class into your mod and generate all required imports
+public class Nabrus<T extends NabrusEntity> extends SinglePartEntityModel<T> {
+	private final ModelPart Nabrus;
 
 	private final ModelPart tail;
 	private final ModelPart bone;
@@ -40,37 +40,39 @@ public class Nabrus extends EntityModel<Entity> {
 	private final ModelPart Hips;
 	private final ModelPart Chest;
 	public Nabrus(ModelPart root) {
-		this.tail = root.getChild("tail");
+		this.Nabrus = root.getChild("Nabrus");
+		this.tail = this.Nabrus.getChild("tail");
 		this.bone = this.tail.getChild("bone");
 		this.bone3 = this.bone.getChild("bone3");
 		this.bone2 = this.bone3.getChild("bone2");
-		this.ears = root.getChild("ears");
-		this.head = root.getChild("head");
-		this.Arm2 = root.getChild("Arm2");
+		this.ears = this.Nabrus.getChild("ears");
+		this.head = this.Nabrus.getChild("head");
+		this.Arm2 = this.Nabrus.getChild("Arm2");
 		this.BeforeElbow2 = this.Arm2.getChild("BeforeElbow2");
 		this.Forearm2 = this.BeforeElbow2.getChild("Forearm2");
 		this.Claw2 = this.Forearm2.getChild("Claw2");
-		this.Arm = root.getChild("Arm");
+		this.Arm = this.Nabrus.getChild("Arm");
 		this.BeforeElbow = this.Arm.getChild("BeforeElbow");
 		this.Forearm = this.BeforeElbow.getChild("Forearm");
 		this.Claw = this.Forearm.getChild("Claw");
-		this.Shoulder = root.getChild("Shoulder");
-		this.LeftLeg = root.getChild("LeftLeg");
+		this.Shoulder = this.Nabrus.getChild("Shoulder");
+		this.LeftLeg = this.Nabrus.getChild("LeftLeg");
 		this.Thigh = this.LeftLeg.getChild("Thigh");
 		this.Leg = this.Thigh.getChild("Leg");
 		this.Foot = this.Leg.getChild("Foot");
-		this.RightLeg = root.getChild("RightLeg");
+		this.RightLeg = this.Nabrus.getChild("RightLeg");
 		this.Thigh2 = this.RightLeg.getChild("Thigh2");
 		this.Leg2 = this.Thigh2.getChild("Leg2");
 		this.Foot2 = this.Leg2.getChild("Foot2");
-		this.Hips = root.getChild("Hips");
-		this.Chest = root.getChild("Chest");
+		this.Hips = this.Nabrus.getChild("Hips");
+		this.Chest = this.Nabrus.getChild("Chest");
 	}
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
+		ModelPartData Nabrus = modelPartData.addChild("Nabrus", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
 
-		ModelPartData tail = modelPartData.addChild("tail", ModelPartBuilder.create(), ModelTransform.pivot(-1.0279F, -0.5063F, 15.774F));
+		ModelPartData tail = Nabrus.addChild("tail", ModelPartBuilder.create(), ModelTransform.pivot(-1.0279F, -24.5063F, 15.774F));
 
 		ModelPartData bone = tail.addChild("bone", ModelPartBuilder.create().uv(58, 39).cuboid(0.0F, -2.0F, -1.0F, 6.0F, 6.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-3.0F, -1.0F, -8.6667F));
 
@@ -78,15 +80,15 @@ public class Nabrus extends EntityModel<Entity> {
 
 		ModelPartData bone2 = bone3.addChild("bone2", ModelPartBuilder.create().uv(28, 76).cuboid(-1.0F, -2.0F, -1.5F, 2.0F, 4.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(2.5391F, 1.0F, 10.6209F));
 
-		ModelPartData ears = modelPartData.addChild("ears", ModelPartBuilder.create().uv(86, 47).cuboid(-5.0F, -10.0F, 1.0F, 5.0F, 9.0F, 2.0F, new Dilation(0.0F))
-		.uv(84, 79).cuboid(-13.0F, -10.0F, 1.0F, 5.0F, 9.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(5.3F, -19.0F, 0.9F));
+		ModelPartData ears = Nabrus.addChild("ears", ModelPartBuilder.create().uv(86, 47).cuboid(-5.0F, -10.0F, 1.0F, 5.0F, 9.0F, 2.0F, new Dilation(0.0F))
+		.uv(84, 79).cuboid(-13.0F, -10.0F, 1.0F, 5.0F, 9.0F, 2.0F, new Dilation(0.0F)), ModelTransform.pivot(5.3F, -43.0F, 0.9F));
 
-		ModelPartData head = modelPartData.addChild("head", ModelPartBuilder.create().uv(29, 11).cuboid(-5.6F, -3.375F, 0.0F, 11.0F, 7.0F, 6.0F, new Dilation(0.0F))
+		ModelPartData head = Nabrus.addChild("head", ModelPartBuilder.create().uv(29, 11).cuboid(-5.6F, -3.375F, 0.0F, 11.0F, 7.0F, 6.0F, new Dilation(0.0F))
 		.uv(-1, 19).cuboid(-4.5F, -5.375F, -1.0F, 9.0F, 9.0F, 8.0F, new Dilation(0.0F))
 		.uv(90, 6).cuboid(-1.5F, -1.375F, -5.0F, 3.0F, 1.0F, 5.0F, new Dilation(0.0F))
-		.uv(18, 67).cuboid(-2.5F, -0.375F, -6.0F, 5.0F, 4.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-0.9249F, -18.0462F, 0.4452F));
+		.uv(18, 67).cuboid(-2.5F, -0.375F, -6.0F, 5.0F, 4.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-0.9249F, -42.0462F, 0.4452F));
 
-		ModelPartData Arm2 = modelPartData.addChild("Arm2", ModelPartBuilder.create(), ModelTransform.of(-1.0F, -8.0F, 7.0F, 0.0F, 3.1416F, 0.0F));
+		ModelPartData Arm2 = Nabrus.addChild("Arm2", ModelPartBuilder.create(), ModelTransform.of(-1.0F, -32.0F, 7.0F, 0.0F, 3.1416F, 0.0F));
 
 		ModelPartData BeforeElbow2 = Arm2.addChild("BeforeElbow2", ModelPartBuilder.create().uv(28, 84).cuboid(-2.3333F, -2.5F, -1.5333F, 6.0F, 5.0F, 3.0F, new Dilation(0.0F))
 		.uv(94, 12).cuboid(-3.3333F, -1.5F, -2.2333F, 6.0F, 3.0F, 1.0F, new Dilation(0.0F))
@@ -98,7 +100,7 @@ public class Nabrus extends EntityModel<Entity> {
 
 		ModelPartData Claw2 = Forearm2.addChild("Claw2", ModelPartBuilder.create().uv(90, 0).cuboid(-2.5F, -1.0F, -2.0F, 5.0F, 2.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(7.0766F, -0.6147F, 0.1F));
 
-		ModelPartData Arm = modelPartData.addChild("Arm", ModelPartBuilder.create(), ModelTransform.pivot(5.0F, -11.0F, 4.0F));
+		ModelPartData Arm = Nabrus.addChild("Arm", ModelPartBuilder.create(), ModelTransform.pivot(5.0F, -35.0F, 4.0F));
 
 		ModelPartData BeforeElbow = Arm.addChild("BeforeElbow", ModelPartBuilder.create().uv(80, 39).cuboid(-14.0F, -2.0F, -2.8F, 6.0F, 5.0F, 3.0F, new Dilation(0.0F))
 		.uv(24, 92).cuboid(-15.0F, -1.0F, -3.5F, 6.0F, 3.0F, 1.0F, new Dilation(0.0F))
@@ -110,11 +112,11 @@ public class Nabrus extends EntityModel<Entity> {
 
 		ModelPartData Claw = Forearm.addChild("Claw", ModelPartBuilder.create().uv(88, 33).cuboid(-7.0F, -2.0F, 0.0F, 5.0F, 2.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(11.0054F, 0.3853F, 5.6943F));
 
-		ModelPartData Shoulder = modelPartData.addChild("Shoulder", ModelPartBuilder.create().uv(30, 24).cuboid(-6.0F, -2.0F, -1.0F, 12.0F, 5.0F, 5.0F, new Dilation(0.0F))
+		ModelPartData Shoulder = Nabrus.addChild("Shoulder", ModelPartBuilder.create().uv(30, 24).cuboid(-6.0F, -2.0F, -1.0F, 12.0F, 5.0F, 5.0F, new Dilation(0.0F))
 		.uv(58, 34).cuboid(-5.5F, -3.0F, -0.6F, 11.0F, 1.0F, 4.0F, new Dilation(0.0F))
-		.uv(84, 74).cuboid(-3.5F, -4.0F, -0.6F, 6.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, -11.0F, 2.0F));
+		.uv(84, 74).cuboid(-3.5F, -4.0F, -0.6F, 6.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, -35.0F, 2.0F));
 
-		ModelPartData LeftLeg = modelPartData.addChild("LeftLeg", ModelPartBuilder.create(), ModelTransform.pivot(0.7F, 22.0F, 0.0F));
+		ModelPartData LeftLeg = Nabrus.addChild("LeftLeg", ModelPartBuilder.create(), ModelTransform.pivot(0.7F, -2.0F, 0.0F));
 
 		ModelPartData Thigh = LeftLeg.addChild("Thigh", ModelPartBuilder.create().uv(58, 50).cuboid(-0.5F, -9.0F, -2.0F, 5.0F, 14.0F, 2.0F, new Dilation(0.0F))
 		.uv(82, 13).cuboid(0.0F, -9.0F, -3.0F, 4.0F, 12.0F, 2.0F, new Dilation(0.0F))
@@ -135,7 +137,7 @@ public class Nabrus extends EntityModel<Entity> {
 
 		ModelPartData cube_r7 = Foot.addChild("cube_r7", ModelPartBuilder.create().uv(76, 0).cuboid(-2.0F, -6.0F, -1.0F, 5.0F, 11.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 1.0F, 2.0F, -1.5708F, 0.0F, 0.0F));
 
-		ModelPartData RightLeg = modelPartData.addChild("RightLeg", ModelPartBuilder.create(), ModelTransform.pivot(0.7F, 22.0F, 0.0F));
+		ModelPartData RightLeg = Nabrus.addChild("RightLeg", ModelPartBuilder.create(), ModelTransform.pivot(0.7F, -2.0F, 0.0F));
 
 		ModelPartData Thigh2 = RightLeg.addChild("Thigh2", ModelPartBuilder.create().uv(62, 0).cuboid(-0.5F, -9.0F, -2.0F, 5.0F, 14.0F, 2.0F, new Dilation(0.0F))
 		.uv(50, 83).cuboid(0.0F, -9.0F, -3.0F, 4.0F, 12.0F, 2.0F, new Dilation(0.0F))
@@ -156,28 +158,27 @@ public class Nabrus extends EntityModel<Entity> {
 
 		ModelPartData cube_r12 = Foot2.addChild("cube_r12", ModelPartBuilder.create().uv(14, 76).cuboid(-2.0F, -6.0F, -1.0F, 5.0F, 11.0F, 2.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 1.0F, 0.0F, -1.5708F, 0.0F, 0.0F));
 
-		ModelPartData Hips = modelPartData.addChild("Hips", ModelPartBuilder.create().uv(64, 16).cuboid(-1.5F, -2.7F, -1.6F, 3.0F, 6.0F, 6.0F, new Dilation(0.0F))
-		.uv(28, 0).cuboid(-6.0F, -5.0F, -1.0F, 12.0F, 6.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, 3.0F, 2.0F));
+		ModelPartData Hips = Nabrus.addChild("Hips", ModelPartBuilder.create().uv(64, 16).cuboid(-1.5F, -2.7F, -1.6F, 3.0F, 6.0F, 6.0F, new Dilation(0.0F))
+		.uv(28, 0).cuboid(-6.0F, -5.0F, -1.0F, 12.0F, 6.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, -21.0F, 2.0F));
 
-		ModelPartData Chest = modelPartData.addChild("Chest", ModelPartBuilder.create().uv(14, 89).cuboid(4.0F, -4.0F, -1.0F, 1.0F, 6.0F, 4.0F, new Dilation(0.0F))
+		ModelPartData Chest = Nabrus.addChild("Chest", ModelPartBuilder.create().uv(14, 89).cuboid(4.0F, -4.0F, -1.0F, 1.0F, 6.0F, 4.0F, new Dilation(0.0F))
 		.uv(0, 0).cuboid(-4.0F, -11.0F, -2.0F, 8.0F, 13.0F, 6.0F, new Dilation(0.0F))
-		.uv(20, 36).cuboid(-5.0F, -4.0F, -1.0F, 1.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, -1.0F, 2.0F));
+		.uv(20, 36).cuboid(-5.0F, -4.0F, -1.0F, 1.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-1.0F, -25.0F, 2.0F));
 		return TexturedModelData.of(modelData, 128, 128);
 	}
-	@Override
-	public void setAngles(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-	}
+
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
-		tail.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		ears.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		head.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		Arm2.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		Arm.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		Shoulder.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		LeftLeg.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		RightLeg.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		Hips.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-		Chest.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+		Nabrus.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart getPart() {
+		return Nabrus;
+	}
+
+	@Override
+	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+
 	}
 }
