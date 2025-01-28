@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "yolcotlmod:item/heroeschestplate"
+    "layer0": "yolcotlmod:item/blakeshelmet"
   }
 }
