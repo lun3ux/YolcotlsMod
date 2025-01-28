@@ -1,4 +1,4 @@
-package net.lune.translationmod.entity.client;
+/* package net.lune.translationmod.entity.client;
 
 import net.lune.translationmod.ModClient;
 import net.lune.translationmod.entity.custom.NabrusEntity;
@@ -16,4 +16,4 @@ public class NabrusRenderer extends MobEntityRenderer<NabrusEntity, Nabrus> {
     public Identifier getTexture(NabrusEntity entity) {
         return new Identifier("entitytesting", "textures/entity/cube/cube.png");
     }
-}
+}         */

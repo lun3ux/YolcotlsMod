@@ -1,20 +1,21 @@
-package net.lune.translationmod;
+ package net.lune.translationmod;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.lune.translationmod.entity.client.Nabrus;
-import net.lune.translationmod.entity.client.NabrusRenderer;
 import net.lune.translationmod.entity.custom.NabrusEntity;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
 public class ModClient implements ClientModInitializer {
-        @Override
-        public void onInitializeClient() {
+    @Override
+    public void onInitializeClient() {
+    }
+}
 
-        }
+        /*
         @Environment(EnvType.CLIENT)
         public class EntityTestingClient implements ClientModInitializer {
             public static final EntityModelLayer MODEL_NABRUS_LAYER = new EntityModelLayer(new Identifier("entitytesting", "cube"), "main");
@@ -25,6 +26,7 @@ public class ModClient implements ClientModInitializer {
                  *
                  * Entity Renderers can also manipulate the model before it renders based on entity context (EndermanEntityRenderer#render).
                  */
+/*
                 EntityRendererRegistry.INSTANCE.register(NabrusEntity.EntityTesting.NABRUS, (context) -> {
                     return new NabrusRenderer(context);
                 });
@@ -33,4 +35,4 @@ public class ModClient implements ClientModInitializer {
                 EntityModelLayerRegistry.registerModelLayer(MODEL_NABRUS_LAYER, Nabrus::getTexturedModelData);
             }
         }
-    }
+    } */

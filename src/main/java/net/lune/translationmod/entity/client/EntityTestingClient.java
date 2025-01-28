@@ -1,4 +1,4 @@
-package net.lune.translationmod.entity.client;
+/*  package net.lune.translationmod.entity.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
@@ -17,9 +17,11 @@ public class EntityTestingClient implements ClientModInitializer {
          *
          * Entity Renderers can also manipulate the model before it renders based on entity context (EndermanEntityRenderer#render).
          */
+/*
         EntityRendererRegistry.INSTANCE.register(NabrusEntity.EntityTesting.NABRUS, (context) -> {
             return new NabrusRenderer(context);
         });
         EntityModelLayerRegistry.registerModelLayer(MODEL_NABRUS_LAYER, Nabrus::getTexturedModelData);
     }
 }
+*/

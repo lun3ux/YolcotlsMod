@@ -21,6 +21,5 @@ public class TemplateMod implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.registerModItems();
 		LOGGER.info("Hello Fabric world!");
-		return null;
 	}
 }
