@@ -30,7 +30,7 @@ public class ModItems {
         entries.add(RUBY);
     }
 
-    public static final Item BLAKES_MATERIAL_HELMET = registerItem(new ArmorItem(Heroes_armor, ArmorItem.Type.HELMET, new Item.Settings()), "blakes_material_helmet");
+    public static final Item BLAKES_MATERIAL_HELMET = registerItem(new ArmorItem(Heroes_armor, ArmorItem.Type.HELMET, new Item.Settings()), "heroes_helmet");
     public static final Item BLAKES_MATERIAL_CHESTPLATE = registerItem(new ArmorItem(Heroes_armor, ArmorItem.Type.CHESTPLATE, new Item.Settings()), "heroes_chestplate");
     public static final Item BLAKES_MATERIAL_LEGGINGS = registerItem(new ArmorItem(Heroes_armor, ArmorItem.Type.LEGGINGS, new Item.Settings()), "heroes_leggings");
     public static final Item BLAKES_MATERIAL_BOOTS = registerItem(new ArmorItem(Heroes_armor, ArmorItem.Type.BOOTS, new Item.Settings()), "heroes_boots");
@@ -38,7 +38,7 @@ public class ModItems {
     public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(TemplateMod.MOD_ID, "item_group"));
     public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
             .icon(() -> new ItemStack(Items.DIAMOND_SWORD))
-            .displayName(Text.translatable("itemGroup.fabric_docs_reference"))
+            .displayName(Text.translatable("yolcotl_mod_stuff"))
             .build();
 
 
@@ -52,6 +52,7 @@ public class ModItems {
             ItemGroup.add(ModItems.BLAKES_MATERIAL_CHESTPLATE);
             ItemGroup.add(ModItems.BLAKES_MATERIAL_LEGGINGS);
             ItemGroup.add(ModItems.BLAKES_MATERIAL_BOOTS);
+            ItemGroup.add(ModItems.RUBY);
         });
 
     }

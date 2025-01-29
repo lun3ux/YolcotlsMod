@@ -12,7 +12,9 @@ import net.minecraft.util.Identifier;
 import java.util.ArrayList;
 
 public static final ArmorMaterial HEROESARMOR = new ArmorMaterial(
-        BASE_DURABILITY,
+public static final RegistryKey<EquipmentAsset> HEROES_ARMOR_KEY = RegistryKey.of(EquipmentAssetKeys.REGISTRY_KEY, Identifier.of(FabricDocsReference.MOD_ID, "heroes"));
+
+BASE_DURABILITY,
         Map.of(
                 EquipmentType.HELMET, 3,
                 EquipmentType.CHESTPLATE, 8,
@@ -23,6 +25,6 @@ public static final ArmorMaterial HEROESARMOR = new ArmorMaterial(
         SoundEvents.ITEM_ARMOR_EQUIP_IRON,
         0.0F,
         0.0F,
-        REPAIRS_GUIDITE_ARMOR,
-        GUIDITE_ARMOR_MATERIAL_KEY
+        REPAIRS_HEROES_ARMOR,
+        HEROES_ARMOR_KEY
 );

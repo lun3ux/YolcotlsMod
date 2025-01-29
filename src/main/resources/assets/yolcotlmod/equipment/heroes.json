@@ -2,12 +2,12 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "yolcotlmod:item/heroesarmorlayerone"
+        "texture": "yolcotlmod:item/hero_layer_1"
       }
     ],
     "humanoid_leggings": [
       {
-        "texture": "yolcotlmod:item/heroesarmorlayertwo"
+        "texture": "yolcotlmod:item/hero_layer_2"
       }
     ]
   }
